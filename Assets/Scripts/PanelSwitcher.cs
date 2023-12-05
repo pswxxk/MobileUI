@@ -5,7 +5,12 @@ public class PanelSwitcher : MonoBehaviour
 {
     public GameObject UnagreePanel; 
     public GameObject AgreePanel;   
-    public Toggle toggle;           
+
+
+    
+    public Toggle toggle;
+    public GameObject IndivisualPanel;
+    public GameObject InterprisePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +20,10 @@ public class PanelSwitcher : MonoBehaviour
 
 
         UnagreePanel.SetActive(false);
+    
+
+        IndivisualPanel.SetActive(true);
+        InterprisePanel.SetActive(false);
     }
 
   
@@ -36,5 +45,17 @@ public class PanelSwitcher : MonoBehaviour
 
             UnagreePanel.SetActive(true);
         }
+    }
+
+    public void OnclickIndivisualbutton()
+    {
+        InterprisePanel.SetActive(false);
+        IndivisualPanel.SetActive(true);
+    }
+
+    public void OnclickInterprisebutton()
+    {
+        IndivisualPanel.SetActive(false);
+        InterprisePanel.SetActive(true);
     }
 }

@@ -8,14 +8,17 @@ public class LoginManager : MonoBehaviour
     public GameObject KakaoCanvas;
     public GameObject UnagreePanel;
     public GameObject AccountCanvas;
-    public GameObject ServicePanel;
-    public GameObject ServicePanel1;
+    public GameObject ServicePanel;     //acount
+    public GameObject ServicePanel1;    //acount
+    public GameObject OtherServicePanel;    //acount
+    public GameObject OtherServicePanel1;   //acount
     // Start is called before the first frame update
     void Start()
     {
         KakaoCanvas.SetActive(false);
         AccountCanvas.SetActive(false);
         ServicePanel1.SetActive(false);
+        OtherServicePanel1.SetActive(false);
     }
 
     public void OnClickKakaobutton()
@@ -37,10 +40,17 @@ public class LoginManager : MonoBehaviour
         AccountCanvas.SetActive(true);
     }
     
-    public void OnClickCheckbutoon()
+    public void OnClickCheckbutton()
     {
         ServicePanel.SetActive(false);
         ServicePanel1.SetActive(true);
     }
+
+    public void OnClickOtherCheckbutton()
+    {
+        OtherServicePanel.SetActive(false);
+        OtherServicePanel1.SetActive(true);
+    }
+
 
 }
