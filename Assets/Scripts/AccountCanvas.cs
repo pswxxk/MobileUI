@@ -7,49 +7,106 @@ using UnityEngine.UI;
 
 public class AccountCanvas : MonoBehaviour
 {
+    public Toggle Indivisualtoggle;
+    public Toggle Interprisetoggle;
+
+    public Toggle CheckToggle;
+    public Toggle CheckToggle1;
+
+    public GameObject UnagreePanel;
+    public GameObject AgreePanel;
+
+    public GameObject UngreePanel1;
+    public GameObject AgreePanel1;
+
     public GameObject IndivisualPanel;
     public GameObject InterprisePanel;
 
-    public Toggle Checktoggle;
-    public Toggle Checktoggle1;
+    public GameObject FinishButton;
+    public GameObject FinishButton1;
 
-    public GameObject unagreePanel;
-    public GameObject agreePanel;
+    
 
-    public GameObject unagreePanel1;
-    public GameObject agreePanel1;
-    // Start is called before the first frame update
     void Start()
     {
-        //Checktoggle.isOn = false;
-        //Checktoggle1.isOn = false;
-        Checktoggle.onValueChanged.AddListener(OnToggleValueChanged);
+        Indivisualtoggle.isOn = true;
+        Interprisetoggle.isOn = false;
+
+        CheckToggle.isOn = false;
+        CheckToggle1.isOn = false;
+
+        UnagreePanel.SetActive(true);
+        AgreePanel.SetActive(false);
+
+        UngreePanel1.SetActive(true);
+        AgreePanel1.SetActive(false);
+
+        IndivisualPanel.SetActive(true);
+        InterprisePanel.SetActive(false);
+
+
+        Indivisualtoggle.onValueChanged.AddListener(delegate { OnIndivisualToggleValueChanged(); });
+        Interprisetoggle.onValueChanged.AddListener(delegate { OnInterpriseToggleValueChanged(); });
+
+        CheckToggle.onValueChanged.AddListener(delegate { OnCheckToggleValueChanged(); });
+        CheckToggle1.onValueChanged.AddListener(delegate { OnCheckToggle1ValueChanged(); });
     }
 
-    // Update is called once per frame
-    void OnToggleValueChanged(bool isOn)
+    void OnIndivisualToggleValueChanged()
     {
-        if (isOn)
+        if (Indivisualtoggle.isOn)
         {
-            unagreePanel.SetActive(false);
+            Interprisetoggle.isOn = false; // InterprisetoggleÀ» ²û
+            InterprisePanel.SetActive(false);
+        }
 
-            agreePanel.SetActive(true);
+        IndivisualPanel.SetActive(Indivisualtoggle.isOn);
+    }
 
-            unagreePanel1.SetActive(false);
+    void OnInterpriseToggleValueChanged()
+    {
+        if (Interprisetoggle.isOn)
+        {
+            Indivisualtoggle.isOn = false; // IndivisualtoggleÀ» ²û
+            IndivisualPanel.SetActive(false);
+        }
 
-            agreePanel1.SetActive(true);
+        InterprisePanel.SetActive(Interprisetoggle.isOn);
+    }
+
+    void OnCheckToggleValueChanged()
+    {
+        if (CheckToggle.isOn)
+        {
+            UnagreePanel.SetActive(false);
+            AgreePanel.SetActive(true);
+            FinishButton.SetActive(true);
         }
         else
         {
-            agreePanel.SetActive(false);
-
-            unagreePanel.SetActive(true);
-
-            agreePanel1.SetActive(false);
-
-            unagreePanel1.SetActive(true) ;
+            UnagreePanel.SetActive(true);
+            AgreePanel.SetActive(false);
+            FinishButton.SetActive(false);
         }
     }
+
+    void OnCheckToggle1ValueChanged()
+    {
+        if (CheckToggle1.isOn)
+        {
+            UngreePanel1.SetActive(false);
+            AgreePanel1.SetActive(true);
+            FinishButton1.SetActive(true);
+        }
+        else
+        {
+            UngreePanel1.SetActive(true);
+            AgreePanel1.SetActive(false);
+            FinishButton1.SetActive(false);
+        }
+    }
+
+
 
 
 }

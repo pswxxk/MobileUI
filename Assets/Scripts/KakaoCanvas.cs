@@ -24,19 +24,15 @@ public class KakaoCanvas : MonoBehaviour
     void OnToggleValueChanged(bool isOn)
     {
         if (isOn)
-        {
-            // 현재 Canvas를 비활성화
+        {       
             UnagreePanel.SetActive(false);
 
-            // 다음 Canvas를 활성화
             AgreePanel.SetActive(true);
         }
         else
         {
-            // Toggle이 꺼진 경우 다음 Canvas를 비활성화
             AgreePanel.SetActive(false);
 
-            // 현재 Canvas를 활성화
             UnagreePanel.SetActive(true);
         }
     }
