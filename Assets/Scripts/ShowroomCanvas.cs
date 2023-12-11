@@ -186,6 +186,17 @@ public class ShowroomCanvas : MonoBehaviour
 
     }
 
+    public void SearchButton()
+    {
+        SearchPanel.SetActive(true);
+        MainPanel.SetActive(true);
+        NoticePanel.SetActive(false);
+        LikePanel.SetActive(false);
+        MyPanel.SetActive(false);
+        HomePanel.SetActive(false);
+
+    }
+
 
 
 
